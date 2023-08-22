@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Roboto Mono,monospace,sans-serif;
+  background-color: azure
+}
+
+.card-container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+  place-self: center;
+}
+
+
+.card {
+  position: absolute;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  backface-visibility: hidden; /* Kartın arka yüzünün görünmemesi için */
+  transition: transform 0.5s;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+  background-color: #ccc;
+  border: 0 solid #e5e7eb;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.flipped .card-front {
+  transform: rotateY(-180deg);
+}
+
+.flipped .card-back {
+  transform: rotateY(0deg);
+}
+
+
+
+
+@media (max-width: 375px) {
+  .card-container{
+    width: 70px;
+    height: 70px;
+  }
+}
+
+
+img{
+  border-radius: 8px;
+}
+
+h1{
+  font-size: 40px;
+  margin: 10px;
+}
+
+.container {
+  display: grid; /* Grid yapısını kullan */
+  place-items: center; /* Çocukları hem yatayda hem de dikeyde ortala */
+  height: 100vh; /* Tam ekran yüksekliği */
+  grid-template-rows: 180px;
+  align-content: start;
+}
+
+
+.App {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 15px;
+  justify-content: center;
+  align-self: start;
+  margin-top: 15px;
+}
+
+
+.title {
+  align-self: start;
+  display: grid;
+  place-items: center;
+  margin-top: 10px;
+}
+
+
+.score{
+  margin-top: 10px;
+}
+
+.point{
+  text-align: center;
+  background-color: #e0ffcd; 
+}
+
+button {
+  position: relative;
+  height: 30px;
+  padding: 0 30px;
+  border: 2px solid #000;
+  background: #e8e8e8;
+  user-select: none;
+  white-space: nowrap;
+  transition: all .05s linear;
+  font-family: inherit;
+ }
+ 
+ button:before, button:after {
+  content: "";
+  position: absolute;
+  background: #e8e8e8;
+  transition: all .2s linear;
+ }
+ 
+ button:before {
+  width: calc(100% + 6px);
+  height: calc(100% - 16px);
+  top: 8px;
+  left: -3px;
+ }
+ 
+ button:after {
+  width: calc(100% - 16px);
+  height: calc(100% + 6px);
+  top: -3px;
+  left: 8px;
+ }
+ 
+ button:hover {
+  cursor: crosshair;
+ }
+ 
+ button:active {
+  transform: scale(0.95);
+ }
+ 
+ button:hover:before {
+  height: calc(100% - 32px);
+  top: 16px;
+ }
+ 
+ button:hover:after {
+  width: calc(100% - 32px);
+  left: 16px;
+ }
+ 
+ button span {
+  font-size: 15px;
+  z-index: 3;
+  position: relative;
+  font-weight: 600;
+ }
+
+ ul{
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0;
+ }
