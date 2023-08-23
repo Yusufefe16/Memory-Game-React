@@ -4,7 +4,8 @@
 
 body{
   font-family: Roboto Mono,monospace,sans-serif;
-  background-color: azure
+  background-color: azure;
+  margin: 0;
 }
 
 .card-container {
@@ -55,6 +56,13 @@ body{
   .card-container{
     width: 70px;
     height: 70px;
+  }
+}
+
+@media (max-width: 280px) {
+  .card-container{
+    width: 50px;
+    height: 50px;
   }
 }
 
